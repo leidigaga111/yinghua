@@ -1,8 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>樱花雨</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Love</title>
     <script src="js/jquery.min.js"></script>
     <style>
       html,
@@ -20,15 +22,157 @@
         padding: 0;
         background-color: #000000;
       }
+      ul {
+        margin: 0;
+        padding: 0;
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 40%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        transform-style: preserve-3d;
+        animation: move 10s linear infinite;
+      }
+
+      ul:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 160px;
+        background: red;
+        border-radius: 50px 50px 0 0;
+        transform: rotate(-45deg);
+        margin-left: 20px;
+      }
+
+      ul:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 160px;
+        background: red;
+        border-radius: 50px 50px 0 0;
+        transform: translate(43px) rotate(45deg);
+        margin-left: 20px;
+      }
+
+      ul li {
+        width: 150px;
+        height: 150px;
+        list-style: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #000;
+        border: 5px solid skyblue;
+        transition: all 0.5s;
+      }
+
+      ul li:nth-child(1) {
+        transform: rotateY(60deg) translateZ(150px);
+      }
+
+      ul li:nth-child(2) {
+        transform: rotateY(120deg) translateZ(150px);
+      }
+
+      ul li:nth-child(3) {
+        transform: rotateY(180deg) translateZ(150px);
+      }
+
+      ul li:nth-child(4) {
+        transform: rotateY(240deg) translateZ(150px);
+      }
+
+      ul li:nth-child(5) {
+        transform: rotateY(300deg) translateZ(150px);
+      }
+
+      ul li:nth-child(6) {
+        transform: rotateY(360deg) translateZ(150px);
+      }
+
+      ul li img {
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s;
+      }
+      .active {
+        width: 300px;
+        height: 300px;
+        left: -70px;
+        top: -100px;
+      }
+      .bigImg {
+        width: 320px;
+        height: 320px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid skyblue;
+        animation: move2 0.5s linear forwards;
+        display: none;
+      }
+
+      /* ul:hover {
+        animation-play-state: paused;
+      }
+
+      ul:hover li img {
+        opacity: 0.5;
+      }
+
+      ul li:hover img {
+        opacity: 1;
+        width: 220px;
+        height: 220px;
+      }
+
+      ul li:hover {
+        width: 220px;
+        height: 220px;
+      } */
+      @keyframes move {
+        from {
+          transform: rotateX(-15deg) rotateY(0deg);
+        }
+
+        to {
+          transform: rotateX(-15deg) rotateY(360deg);
+        }
+      }
+      @keyframes move2 {
+        from {
+          transform: scale(0.5) translate(-70%, -70%);
+        }
+        to {
+          transform: scale(1) translate(-50%, -50%);
+        }
+      }
     </style>
   </head>
   <body>
     <div id="jsi-cherry-container" class="container">
       <audio src="./js/1102101036.mp3" autoplay id="audio"></audio>
+      <ul>
+        <li><img src="./images/a1.jpg" alt="" /></li>
+        <li><img src="./images/a2.jpg" alt="" /></li>
+        <li><img src="./images/a3.jpg" alt="" /></li>
+        <li><img src="./images/a4.jpg" alt="" /></li>
+        <li><img src="./images/a5.jpg" alt="" /></li>
+        <li><img src="./images/a6.jpg" alt="" /></li>
+      </ul>
+      <img src="" alt="" class="bigImg" />
     </div>
   </body>
+  <script src="./js/index.js"></script>
   <script>
-    var aa = document.getElementById("audio");
     $(function() {
       RENDERER.init();
     });
